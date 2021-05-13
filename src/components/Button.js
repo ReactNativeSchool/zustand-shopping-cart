@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.primary,
     marginVertical: 7,
+    paddingHorizontal: 14,
   },
   containerOutline: {
     backgroundColor: 'transparent',

@@ -3,12 +3,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { List } from '../screens/List';
 import { TextDemo, ButtonDemo, FormDemo } from '../screens/Demos';
+import { Counter } from '../screens/Counter';
 
 const MainStack = createStackNavigator();
 
 export const Main = () => (
   <MainStack.Navigator>
     <MainStack.Screen name="List" component={List} />
+    <MainStack.Screen name="Counter" component={Counter} />
     <MainStack.Screen
       name="TextDemo"
       component={TextDemo}

@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
 
 const screens = [
   {
+    title: 'Counter',
+    subtitle: 'A zustand counter.',
+    target: 'Counter',
+  },
+  {
     title: 'Text',
     subtitle: 'An example of using the Text.js components.',
     target: 'TextDemo',
