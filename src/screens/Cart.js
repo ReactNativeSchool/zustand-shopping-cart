@@ -39,8 +39,11 @@ const Summary = () => {
   return (
     <>
       {items.map(id => (
-        <TouchableOpacity onPress={() => removeItem({ id, all: true })}>
-          <View key={id} style={styles.rowItem}>
+        <TouchableOpacity
+          key={id}
+          onPress={() => removeItem({ id, all: true })}
+        >
+          <View style={styles.rowItem}>
             <Text>• {cart[id].name}</Text>
             <Text>{`$${price(cart[id].price)} x${cart[id].quantity}`}</Text>
           </View>
