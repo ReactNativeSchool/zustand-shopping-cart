@@ -7,8 +7,10 @@ import colors from '../constants/colors';
 const styles = StyleSheet.create({
   row: {
     paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 15,
     backgroundColor: colors.white,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   titleText: {
     fontWeight: 'bold',
@@ -19,14 +21,22 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ListItem = ({ title, subtitle, onPress = () => null }) => {
+export const ListItem = ({
+  title,
+  subtitle,
+  onPress = () => null,
+  rightContent = null,
+}) => {
   const rowStyles = [styles.row];
 
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={rowStyles}>
-        <Text style={styles.titleText}>{title}</Text>
-        <Text>{subtitle}</Text>
+        <View>
+          <Text style={styles.titleText}>{title}</Text>
+          {subtitle && <Text>{subtitle}</Text>}
+        </View>
+        {rightContent}
       </View>
     </TouchableOpacity>
   );

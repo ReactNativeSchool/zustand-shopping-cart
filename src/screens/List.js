@@ -19,6 +19,11 @@ const screens = [
     target: 'Counter',
   },
   {
+    title: 'Cart',
+    subtitle: 'A zustand cart.',
+    target: 'Cart',
+  },
+  {
     title: 'Text',
     subtitle: 'An example of using the Text.js components.',
     target: 'TextDemo',

@@ -1,30 +1,37 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { List } from '../screens/List';
-import { TextDemo, ButtonDemo, FormDemo } from '../screens/Demos';
-import { Counter } from '../screens/Counter';
+import { Products } from '../screens/Products';
+import { Product } from '../screens/Product';
+import { Cart } from '../screens/Cart';
 
-const MainStack = createStackNavigator();
+const ProductStack = createStackNavigator();
+const ProductStackNavigator = () => (
+  <ProductStack.Navigator>
+    <ProductStack.Screen name="Products" component={Products} />
+    <ProductStack.Screen
+      name="Product"
+      component={Product}
+      options={({ route }) => ({
+        title: route?.params?.item?.name,
+      })}
+    />
+  </ProductStack.Navigator>
+);
+
+const CheckoutStack = createStackNavigator();
+const CheckoutStackNavigator = () => (
+  <CheckoutStack.Navigator>
+    <CheckoutStack.Screen name="Cart" component={Cart} />
+  </CheckoutStack.Navigator>
+);
+
+const Tabs = createBottomTabNavigator();
 
 export const Main = () => (
-  <MainStack.Navigator>
-    <MainStack.Screen name="List" component={List} />
-    <MainStack.Screen name="Counter" component={Counter} />
-    <MainStack.Screen
-      name="TextDemo"
-      component={TextDemo}
-      options={{ headerTitle: 'Text Demo' }}
-    />
-    <MainStack.Screen
-      name="FormDemo"
-      component={FormDemo}
-      options={{ headerTitle: 'Button Demo' }}
-    />
-    <MainStack.Screen
-      name="ButtonDemo"
-      component={ButtonDemo}
-      options={{ headerTitle: 'Button Demo' }}
-    />
-  </MainStack.Navigator>
+  <Tabs.Navigator>
+    <Tabs.Screen name="Products" component={ProductStackNavigator} />
+    <Tabs.Screen name="Checkout" component={CheckoutStackNavigator} />
+  </Tabs.Navigator>
 );

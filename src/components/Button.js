@@ -6,12 +6,11 @@ import colors from '../constants/colors';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,
-    paddingVertical: 14,
+    padding: 14,
     borderRadius: 6,
     borderWidth: 1,
     borderColor: colors.primary,
     marginVertical: 7,
-    paddingHorizontal: 14,
   },
   containerOutline: {
     backgroundColor: 'transparent',
@@ -29,7 +28,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Button = ({ onPress = () => {}, children = '', type }) => {
+export const Button = ({
+  onPress = () => {},
+  children = '',
+  type,
+  style = {},
+}) => {
   const containerStyles = [styles.container];
   const textStyles = [styles.text];
 
@@ -37,6 +41,8 @@ export const Button = ({ onPress = () => {}, children = '', type }) => {
     containerStyles.push(styles.containerOutline);
     textStyles.push(styles.textOutline);
   }
+
+  containerStyles.push(style);
 
   return (
     <TouchableOpacity onPress={onPress} style={containerStyles}>
